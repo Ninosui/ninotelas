@@ -3,915 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Corporativo Master</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CapCut PRO Vitalício - Edição Profissional Ilimitada! | PROMOÇÃO R$ 45,00</title>
+    <meta name="description" content="Garanta o CapCut PRO Vitalício por apenas R$ 45,00. Acesso a todos os recursos PRO para sempre, com suporte completo. Promoção imperdível por tempo limitado!">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
-        /* Estilos globais */
+        /* RESET BÁSICO E TIPOGRAFIA */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f8f9fa;
-            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #0d1117; /* Fundo escuro profissional */
+            color: #f0f6fc; /* Texto claro */
         }
-        
-        /* Página de Login */
-        .auth-page {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .auth-container {
-            width: 100%;
-            max-width: 450px;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .auth-branding {
-            padding: 30px;
+
+        /* CABEÇALHO */
+        header {
+            background-color: #161b22;
+            padding: 15px 0;
             text-align: center;
-            background: linear-gradient(135deg, #1e40af, #2563eb);
-            color: white;
+            border-bottom: 3px solid #00c7e2; /* Cor de destaque CapCut */
         }
-        
-        .auth-branding img {
-            height: 60px;
-            margin-bottom: 15px;
-            filter: brightness(0) invert(1);
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00c7e2;
+            text-transform: uppercase;
         }
-        
-        /* Componentes comuns */
-        .status-badge {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
+
+        /* SEÇÃO HERO (DESTAQUE) */
+        #hero {
+            padding: 80px 0;
             text-align: center;
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 199, 226, 0.5);
+        }
+
+        #hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #ccc;
         }
         
-        .status-active { background: #dcfce7; color: #166534; }
-        .status-inactive { background: #fee2e2; color: #991b1b; }
-        .status-expired { background: #fef3c7; color: #92400e; }
-        .status-master { background: #dbeafe; color: #1e40af; }
-        
-        /* Painel de Admin */
-        .user-form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            align-items: end;
-            margin-bottom: 1.5rem;
+        /* DESTAQUE DO PREÇO */
+        .price-box {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Fundo de preço chamativo */
+            padding: 20px 40px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.5);
+            animation: pulse 1.5s infinite alternate;
         }
-        
-        .user-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
-            align-items: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #dee2e6;
-        }
-        
-        .user-item-header {
-            font-weight: bold;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .user-item {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto auto auto;
-                gap: 10px;
-                padding: 15px;
-                border: 1px solid #dee2e6;
-                margin-bottom: 1rem;
-                border-radius: 8px;
-            }
-            
-            .user-item-header {
-                display: none;
-            }
-        }
-        
-        /* Notificação */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            background: #ef4444;
-            color: white;
-            border-radius: 5px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            display: none;
-            z-index: 1000;
-        }
-        
-        .notification.success {
-            background: #10b981;
-        }
-        
-        .notification.show {
-            display: block;
-            animation: slideIn 0.3s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        /* Timer de Sessão - NOVO DESIGN */
-        .session-timer {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(30, 64, 175, 0.9);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-        
-        .session-timer.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .session-timer .timer-icon {
-            font-size: 1rem;
-        }
-        
-        .session-timer.warning {
-            background: rgba(245, 158, 11, 0.9);
-            animation: pulseSoft 1.5s infinite;
-        }
-        
-        .session-timer.danger {
-            background: rgba(239, 68, 68, 0.9);
-            animation: pulse 1s infinite;
-        }
-        
+
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .price-box .old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #f0f6fc;
+            opacity: 0.7;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .price-box .new-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .price-box .tagline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* BOTÃO CTA (CHAMADA PARA AÇÃO) */
+        .cta-button {
+            display: inline-block;
+            background-color: #00c7e2; /* Cor principal CapCut */
+            color: #161b22;
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 8px 15px rgba(0, 199, 226, 0.4);
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #00e2ff;
+            transform: translateY(-3px);
         }
         
-        @keyframes pulseSoft {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+        /* SEÇÃO DE RECURSOS */
+        #recursos {
+            padding: 60px 0;
+            background-color: #101419;
+            text-align: center;
+        }
+
+        #recursos h2 {
+            font-size: 2.5rem;
+            color: #00c7e2;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background-color: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #ff416c;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
         
-        /* Loading */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            display: none;
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #00c7e2;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        /* SEÇÃO DE GARANTIA E SUPORTE */
+        #garantia {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #0d1117;
+        }
+        
+        #garantia h2 {
+            font-size: 2.5rem;
+            color: #ff416c;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .guarantee-box {
+            background-color: #161b22;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #ff416c;
+        }
+        
+        .guarantee-box i {
+            font-size: 3rem;
+            color: #00c7e2;
+            margin-bottom: 15px;
+        }
+        
+        .guarantee-box p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* NOVO ESTILO DO LINK DE SUPORTE */
+        .support-link {
+            display: inline-block;
+            background-color: #00c7e2;
+            color: #161b22;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none; /* Remove sublinhado */
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        
+        .support-link:hover {
+            background-color: #00e2ff;
+        }
+        
+        .support-link i {
+            margin-right: 8px;
+            color: #161b22;
+            font-size: 1.1rem;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #161b22;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f2a37;
+        }
+        
+        footer .support-contact {
+            color: #00c7e2;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVIDADE (Ajustes para telas menores) */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero .subtitle {
+                font-size: 1.2rem;
+            }
+            .price-box .new-price {
+                font-size: 3rem;
+            }
+            .price-box .tagline {
+                font-size: 1.2rem;
+            }
+            .cta-button {
+                font-size: 1.5rem;
+                padding: 12px 30px;
+            }
         }
     </style>
 </head>
-<body class="auth-page">
-    <!-- Página de Login -->
-    <div class="auth-container" id="loginContainer">
-        <div class="auth-branding">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJMNCA3bDggNSA4LTUtOC01em0wIDE0TDQgMTFsOCA1IDgtNS04LTV6Ii8+PC9zdmc+" alt="Logo">
-            <h1>Sistema Corporativo</h1>
-            <p>Entre com suas credenciais</p>
+<body>
+
+    <header>
+        <div class="container">
+            <span class="logo">CapCut PRO</span>
         </div>
+    </header>
 
-        <form id="loginForm" class="p-4">
-            <div class="mb-3">
-                <label for="email" class="form-label">Usuário</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" id="email" name="email" required placeholder="Digite seu usuário">
-                </div>
+    <section id="hero">
+        <div class="container">
+            <h1>CapCut PRO VITALÍCIO</h1>
+            <p class="subtitle">Acesso Ilimitado aos Melhores Recursos de Edição, Para Sempre!</p>
+            
+            <div class="price-box">
+                <span class="old-price">Preço Normal Anual: R$ 430,00</span>
+                <span class="new-price">R$ 45,00</span>
+                <span class="tagline">PROMOÇÃO IMPERDÍVEL!</span>
             </div>
-
-            <div class="mb-3">
-                <label for="password" class="form-label">Senha</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password" name="password" required placeholder="••••••••">
-                    <button class="btn btn-outline-secondary toggle-password" type="button">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100" id="loginBtn">
-                Entrar
-            </button>
-
-            <div class="text-center mt-3">
-                <a href="#forgot-password" class="text-decoration-none">Esqueceu a senha?</a>
-            </div>
-        </form>
-    </div>
-
-    <!-- Página do Dashboard Normal -->
-    <div class="internal-page" id="dashboardPage" style="display: none;">
-        <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
-            <h1 class="mb-0">Painel do Usuário</h1>
-            <button id="logoutBtn" class="btn btn-light">Sair</button>
-        </header>
-        <main class="container py-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h2 class="mb-4">Bem-vindo, <span id="welcomeUser">Usuário</span>!</h2>
-                    <p>Você está logado com sucesso. A sessão expirará automaticamente em <span id="sessionTime">10:00</span> minutos.</p>
-                    <p id="accountStatusInfo" class="mt-3"></p>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Página de Administração -->
-    <div class="internal-page" id="adminPage" style="display: none;">
-        <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
-            <h1 class="mb-0">Painel de Admin Master</h1>
-            <button id="adminLogoutBtn" class="btn btn-light">Sair</button>
-        </header>
-        
-        <main class="container py-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h2 class="mb-4">Gerenciamento de Usuários</h2>
-
-                    <!-- Formulário de Adição -->
-                    <div class="user-form-grid">
-                        <div>
-                            <label class="form-label">Usuário</label>
-                            <input type="text" id="newUsername" class="form-control" placeholder="Novo usuário">
-                        </div>
-                        <div>
-                            <label class="form-label">Senha</label>
-                            <div class="input-group">
-                                <input type="password" id="newPassword" class="form-control" placeholder="Nova senha">
-                                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility(this)">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="form-label">Validade</label>
-                            <select id="expiryTime" class="form-select">
-                                <option value="1">1 Mês</option>
-                                <option value="2">2 Meses</option>
-                                <option value="3">3 Meses</option>
-                                <option value="6">6 Meses</option>
-                                <option value="12">1 Ano</option>
-                                <option value="0" selected>Nunca expira</option>
-                            </select>
-                        </div>
-                        <button id="addUserBtn" class="btn btn-primary h-100">Adicionar</button>
-                    </div>
-
-                    <!-- Lista de Usuários -->
-                    <div id="userList">
-                        <div class="user-item user-item-header d-none d-md-flex">
-                            <span>Usuário</span>
-                            <span>Senha</span>
-                            <span>Validade</span>
-                            <span>Status</span>
-                            <span>Expira em</span>
-                            <span>Ações</span>
-                        </div>
-                        <!-- Lista será preenchida via JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Componentes Comuns -->
-    <div class="notification" id="notification"></div>
-    <div class="session-timer" id="sessionTimer">
-        <i class="fas fa-clock timer-icon"></i>
-        <span class="timer-text">Tempo restante: 10:00</span>
-    </div>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Carregando...</span>
+            
+            <a href="https://pay.kiwify.com.br/dyDZeNS" class="cta-button" id="main-cta">
+                <i class="fas fa-bolt"></i> GARANTA SEU ACESSO VITALÍCIO!
+            </a>
+            
+            <p style="margin-top: 20px; font-weight: 600;">* Oferta válida apenas enquanto durar o estoque promocional.</p>
         </div>
-    </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        // Configurações da API
-        const JSONBIN_API_KEY = '$2a$10$tNBm0HKC.yKxVJtduKGzbequh3vBYqZFe7DHp4NLs9nqe1cpMMk/C';
-        const JSONBIN_BIN_ID = 'ninotelas';
-        const API_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
-
-        // Cache local de usuários
-        let cachedUsers = [];
-
-        // Funções da API - Versão robusta
-        async function getUsers() {
-            try {
-                // Verifica primeiro se temos cache válido
-                if (cachedUsers.length > 0) {
-                    return cachedUsers;
-                }
-
-                // Tenta carregar do localStorage como fallback
-                const localData = localStorage.getItem('users_backup');
-                if (localData) {
-                    cachedUsers = JSON.parse(localData);
-                    if (Array.isArray(cachedUsers) && cachedUsers.length > 0) {
-                        return cachedUsers;
-                    }
-                }
-
-                // Busca da API
-                const response = await axios.get(API_URL, {
-                    headers: { 
-                        'X-Master-Key': JSONBIN_API_KEY,
-                        'X-Bin-Meta': false
-                    },
-                    timeout: 5000 // 5 segundos de timeout
-                });
-
-                // Verifica a estrutura dos dados
-                if (response.data && Array.isArray(response.data.users)) {
-                    cachedUsers = response.data.users;
-                } else if (Array.isArray(response.data)) {
-                    cachedUsers = response.data;
-                } else {
-                    throw new Error('Estrutura de dados inválida');
-                }
-
-                // Atualiza o backup local
-                localStorage.setItem('users_backup', JSON.stringify(cachedUsers));
-                return cachedUsers;
-
-            } catch (error) {
-                console.error('Erro ao carregar usuários:', error);
-                
-                // Tenta usar o cache local como último recurso
-                const localData = localStorage.getItem('users_backup');
-                if (localData) {
-                    cachedUsers = JSON.parse(localData);
-                    return cachedUsers;
-                }
-                
-                showNotification('Erro ao carregar dados. Tente novamente.');
-                return [];
-            }
-        }
-
-        async function saveUsers(users) {
-            try {
-                // Atualiza o cache local primeiro
-                cachedUsers = users;
-                localStorage.setItem('users_backup', JSON.stringify(users));
-
-                // Tenta salvar na API
-                const response = await axios.put(API_URL, { users }, {
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': JSONBIN_API_KEY,
-                        'X-Bin-Versioning': false
-                    },
-                    timeout: 5000
-                });
-
-                            return response.status === 200;
-            } catch (error) {
-                console.error('Erro ao salvar usuários:', error);
-                showNotification('Dados salvos localmente. Falha na sincronização com o servidor.');
-                return false;
-            }
-        }
-
-        // Sistema de Login Completo
-        document.addEventListener('DOMContentLoaded', async function() {
-            // Elementos
-            const elements = {
-                loginContainer: document.getElementById('loginContainer'),
-                dashboardPage: document.getElementById('dashboardPage'),
-                adminPage: document.getElementById('adminPage'),
-                loginForm: document.getElementById('loginForm'),
-                emailInput: document.getElementById('email'),
-                passwordInput: document.getElementById('password'),
-                togglePassword: document.querySelector('.toggle-password'),
-                loginBtn: document.getElementById('loginBtn'),
-                logoutBtn: document.getElementById('logoutBtn'),
-                adminLogoutBtn: document.getElementById('adminLogoutBtn'),
-                notification: document.getElementById('notification'),
-                sessionTimer: document.getElementById('sessionTimer'),
-                welcomeUser: document.getElementById('welcomeUser'),
-                sessionTimeDisplay: document.getElementById('sessionTime'),
-                accountStatusInfo: document.getElementById('accountStatusInfo'),
-                newUsernameInput: document.getElementById('newUsername'),
-                newPasswordInput: document.getElementById('newPassword'),
-                expiryTimeSelect: document.getElementById('expiryTime'),
-                addUserBtn: document.getElementById('addUserBtn'),
-                userList: document.getElementById('userList'),
-                loadingOverlay: document.getElementById('loadingOverlay')
-            };
-
-            // Variáveis do sistema
-            let logoutTimer;
-            let timeLeft = 600; // 10 minutos em segundos
-            const totalTime = 600;
-
-            // Inicializa os usuários padrão
-            async function initializeUsers() {
-                const users = await getUsers();
-                if (users.length === 0) {
-                    const defaultUsers = [
-                        { 
-                            username: 'ninotelas_adm', 
-                            password: 'ninotelas_adm_adm', 
-                            isAdmin: true, 
-                            active: true,
-                            expiryDate: null,
-                            isMaster: true
-                        }
-                    ];
-                    await saveUsers(defaultUsers);
-                }
-            }
-
-            // Funções utilitárias
-            function calculateExpiryDate(months) {
-                if (months === 0) return null;
-                const date = new Date();
-                date.setMonth(date.getMonth() + parseInt(months));
-                return date.toISOString().split('T')[0];
-            }
-
-            function isAccountExpired(expiryDate) {
-                if (!expiryDate) return false;
-                const today = new Date().toISOString().split('T')[0];
-                return expiryDate < today;
-            }
-
-            function formatDate(dateString) {
-                if (!dateString) return "Nunca";
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return new Date(dateString).toLocaleDateString('pt-BR', options);
-            }
-
-            function daysUntilExpiry(expiryDate) {
-                if (!expiryDate) return "Conta sem expiração";
-                const today = new Date();
-                const expiry = new Date(expiryDate);
-                const diffTime = expiry - today;
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                if (diffDays < 0) return "Conta expirada";
-                return `${diffDays} dias`;
-            }
-
-            window.togglePasswordVisibility = function(btn) {
-                const input = btn.parentElement.querySelector('input');
-                const icon = btn.querySelector('i');
-                if (input.type === "password") {
-                    input.type = "text";
-                    icon.classList.replace('fa-eye', 'fa-eye-slash');
-                } else {
-                    input.type = "password";
-                    icon.classList.replace('fa-eye-slash', 'fa-eye');
-                }
-            };
-
-            function showNotification(message, type = 'error') {
-                elements.notification.textContent = message;
-                elements.notification.className = 'notification';
-                elements.notification.classList.add(type, 'show');
-                
-                setTimeout(() => {
-                    elements.notification.classList.remove('show');
-                }, 5000);
-            }
-
-            function showLoading(show) {
-                elements.loadingOverlay.style.display = show ? 'flex' : 'none';
-            }
-
-            function checkLogin() {
-                return localStorage.getItem('isLoggedIn') === 'true';
-            }
-
-            // Sistema de timer de sessão
-            function startLogoutTimer() {
-                setTimeout(() => {
-                    elements.sessionTimer.classList.add('show');
-                }, 100);
-                
-                timeLeft = totalTime;
-                updateTimerDisplay();
-                
-                if (logoutTimer) {
-                    clearInterval(logoutTimer);
-                }
-                
-                logoutTimer = setInterval(function() {
-                    timeLeft--;
-                    updateTimerDisplay();
-                    
-                    if (timeLeft <= 0) {
-                        autoLogout();
-                    }
-                }, 1000);
-            }
+    <section id="recursos">
+        <div class="container">
+            <h2>O que o CapCut PRO Vitalício Libera para Você?</h2>
             
-            function updateTimerDisplay() {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            <div class="features-grid">
                 
-                document.querySelector('.timer-text').textContent = `Tempo restante: ${timeString}`;
-                if (elements.sessionTimeDisplay) {
-                    elements.sessionTimeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                }
+                <div class="feature-item">
+                    <i class="fas fa-magic"></i>
+                    <h3>Remoção de Fundo (Chroma Key)</h3>
+                    <p>Remova fundos de vídeos e fotos com um clique, de forma precisa e profissional.</p>
+                </div>
                 
-                elements.sessionTimer.className = 'session-timer show';
+                <div class="feature-item">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Efeitos e Transições Exclusivas</h3>
+                    <p>Centenas de efeitos, filtros e transições premium para vídeos com qualidade de cinema.</p>
+                </div>
                 
-                if (timeLeft <= 60 && timeLeft > 30) {
-                    elements.sessionTimer.classList.add('warning');
-                } else if (timeLeft <= 30) {
-                    elements.sessionTimer.classList.add('danger');
-                } else {
-                    elements.sessionTimer.classList.remove('warning', 'danger');
-                }
-            }
+                <div class="feature-item">
+                    <i class="fas fa-video"></i>
+                    <h3>Exportação em 4K e 60 FPS</h3>
+                    <p>Qualidade máxima para suas edições, garantindo vídeos nítidos e fluidos em qualquer plataforma.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>Recursos de IA Avançada</h3>
+                    <p>Ferramentas de Inteligência Artificial para retoque facial, estabilização e legendas automáticas PRO.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Biblioteca de Áudio Ilimitada</h3>
+                    <p>Acesso total a músicas e efeitos sonoros livres de direitos autorais para monetizar seus vídeos.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Sem Marca D'água PRO</h3>
+                    <p>Diga adeus à marca d'água PRO em suas edições. Seus vídeos, 100% profissionais.</p>
+                </div>
+                
+            </div>
             
-            function autoLogout() {
-                clearInterval(logoutTimer);
-                showNotification('Sua sessão expirou por inatividade. Por favor, faça login novamente.', 'error');
-                performLogout();
-            }
+            <a href="https://pay.kiwify.com.br/dyDZeNS" class="cta-button" style="margin-top: 50px;">
+                <i class="fas fa-check-circle"></i> EU QUERO A LICENÇA VITALÍCIA POR R$ 45!
+            </a>
+        </div>
+    </section>
+    
+    <section id="garantia">
+        <div class="container">
+            <h2>Sua Compra 100% Segura e com Suporte</h2>
             
-            function performLogout() {
-                localStorage.removeItem('isLoggedIn');
-                localStorage.removeItem('username');
-                localStorage.removeItem('isAdmin');
-                elements.dashboardPage.style.display = 'none';
-                elements.adminPage.style.display = 'none';
-                elements.loginContainer.style.display = 'block';
-                elements.sessionTimer.classList.remove('show');
-                elements.loginForm.reset();
-                elements.loginBtn.disabled = false;
-                elements.loginBtn.textContent = 'Entrar';
-            }
+            <div class="guarantee-box">
+                <i class="fas fa-shield-alt"></i>
+                <p>Nossa licença é genuína e garante seu acesso vitalício aos recursos PRO.</p>
+                <p>Você recebe a licença e um passo a passo completo. É rápido, fácil e garantido!</p>
+                
+                <a href="https://wa.me/558888587251" target="_blank" class="support-link">
+                    <i class="fab fa-whatsapp"></i> SUPORTE COMPLETO VIA WHATSAPP INCLUSO!
+                </a>
+                <p style="margin-top: 15px; font-style: italic;">Não se preocupe com dúvidas ou instalação. Nossa equipe está pronta para te ajudar.</p>
+            </div>
+        </div>
+    </section>
 
-            // Renderização da lista de usuários
-            async function renderUserList() {
-                const users = (await getUsers()).filter(user => !user.isMaster);
-                elements.userList.innerHTML = '';
-                
-                // Header (apenas desktop)
-                const header = document.createElement('div');
-                header.className = 'user-item user-item-header d-none d-md-flex';
-                header.innerHTML = `
-                    <span>Usuário</span>
-                    <span>Senha</span>
-                    <span>Validade</span>
-                    <span>Status</span>
-                    <span>Expira em</span>
-                    <span>Ações</span>
-                `;
-                elements.userList.appendChild(header);
-                
-                if (users.length === 0) {
-                    const emptyMsg = document.createElement('div');
-                    emptyMsg.className = 'user-item';
-                    emptyMsg.style.gridColumn = '1 / -1';
-                    emptyMsg.style.textAlign = 'center';
-                    emptyMsg.textContent = 'Nenhum usuário cadastrado ainda.';
-                    elements.userList.appendChild(emptyMsg);
-                    return;
-                }
-                
-                users.forEach(user => {
-                    const isExpired = user.expiryDate ? isAccountExpired(user.expiryDate) : false;
-                    const statusClass = user.isMaster ? 'status-master' : 
-                                      !user.active ? 'status-inactive' : 
-                                      isExpired ? 'status-expired' : 'status-active';
-                    const statusText = user.isMaster ? 'Master' : 
-                                     !user.active ? 'Inativo' : 
-                                     isExpired ? 'Expirado' : 'Ativo';
-                    
-                    const userItem = document.createElement('div');
-                    userItem.className = 'user-item';
-                    userItem.innerHTML = `
-                        <span>${user.username}</span>
-                        <span>
-                            <div class="input-group" style="max-width: 200px;">
-                                <input type="password" value="${user.password}" 
-                                    class="form-control form-control-sm" disabled
-                                    style="border-right: 0;">
-                                <button class="btn btn-sm btn-outline-secondary" 
-                                    type="button" onclick="togglePasswordVisibility(this)">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </span>
-                        <span>${user.expiryDate ? formatDate(user.expiryDate) : 'Nunca'}</span>
-                        <span><span class="status-badge ${statusClass}">${statusText}</span></span>
-                        <span>${daysUntilExpiry(user.expiryDate)}</span>
-                        <div class="d-flex gap-2">
-                            ${!user.isMaster ? `
-                            <button class="btn btn-sm ${user.active ? 'btn-warning' : 'btn-success'}" 
-                                data-username="${user.username}" data-action="toggle">
-                                ${user.active ? 'Desativar' : 'Ativar'}
-                            </button>
-                            <button class="btn btn-sm btn-danger" 
-                                data-username="${user.username}" data-action="delete">
-                                Excluir
-                            </button>
-                            ` : '<span class="text-muted">Conta Master</span>'}
-                        </div>
-                    `;
-                    elements.userList.appendChild(userItem);
-                });
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CapCut PRO Vitalício. Todos os direitos reservados. | Precisa de Ajuda? Fale com nosso suporte: <a href="https://wa.me/558888587251" target="_blank" class="support-contact">WhatsApp (88) 8858-7251</a></p>
+        </div>
+    </footer>
+    
+    <script></script>
 
-                            // Adiciona eventos aos botões
-                document.querySelectorAll('[data-action="toggle"]').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const username = this.getAttribute('data-username');
-                        toggleUserStatus(username);
-                    });
-                });
-                
-                document.querySelectorAll('[data-action="delete"]').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const username = this.getAttribute('data-username');
-                        deleteUser(username);
-                    });
-                });
-            }
-            
-            // Operações CRUD
-            async function addUser(username, password, expiryMonths) {
-                if (!username || !password) {
-                    showNotification('Preencha todos os campos');
-                    return;
-                }
-                
-                if (password.length < 4) {
-                    showNotification('A senha deve ter pelo menos 4 caracteres');
-                    return;
-                }
-                
-                const users = await getUsers();
-                
-                if (users.some(user => user.username === username)) {
-                    showNotification('Este usuário já existe');
-                    return;
-                }
-                
-                const expiryDate = expiryMonths > 0 ? calculateExpiryDate(expiryMonths) : null;
-                
-                users.push({ 
-                    username, 
-                    password, 
-                    isAdmin: false, 
-                    active: true,
-                    expiryDate,
-                    isMaster: false
-                });
-                
-                await saveUsers(users);
-                renderUserList();
-                showNotification('Usuário adicionado com sucesso!', 'success');
-                elements.newUsernameInput.value = '';
-                elements.newPasswordInput.value = '';
-                elements.expiryTimeSelect.value = '0';
-            }
-            
-            async function toggleUserStatus(username) {
-                const users = await getUsers();
-                const userIndex = users.findIndex(user => user.username === username);
-                
-                if (userIndex !== -1 && !users[userIndex].isMaster) {
-                    users[userIndex].active = !users[userIndex].active;
-                    await saveUsers(users);
-                    renderUserList();
-                    
-                    const action = users[userIndex].active ? 'ativado' : 'desativado';
-                    showNotification(`Usuário ${action} com sucesso!`, 'success');
-                    
-                    if (localStorage.getItem('username') === username && !users[userIndex].active) {
-                        setTimeout(() => {
-                            showNotification('Sua conta foi desativada! Você será desconectado.', 'error');
-                            performLogout();
-                        }, 1000);
-                    }
-                }
-            }
-            
-            async function deleteUser(username) {
-                const users = await getUsers();
-                const user = users.find(u => u.username === username);
-                
-                if (user && user.isMaster) {
-                    showNotification('Não é possível excluir a conta master');
-                    return;
-                }
-                
-                if (!confirm(`Tem certeza que deseja excluir permanentemente o usuário "${username}"?`)) {
-                    return;
-                }
-                
-                const updatedUsers = users.filter(user => user.username !== username);
-                await saveUsers(updatedUsers);
-                renderUserList();
-                showNotification('Usuário removido com sucesso!', 'success');
-                
-                if (localStorage.getItem('username') === username) {
-                    setTimeout(() => {
-                        showNotification('Sua conta foi excluída! Você será desconectado.', 'error');
-                        performLogout();
-                    }, 1000);
-                }
-            }
-
-            // Event Listeners
-            elements.loginForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const username = elements.emailInput.value.trim();
-                const password = elements.passwordInput.value;
-                
-                if (!username || !password) {
-                    showNotification('Preencha todos os campos');
-                    return;
-                }
-                
-                showLoading(true);
-                elements.loginBtn.disabled = true;
-                elements.loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
-                
-                try {
-                    const users = await getUsers();
-                    const validUser = users.find(user => 
-                        user.username === username && user.password === password
-                    );
-
-                    if (validUser) {
-                        if (!validUser.isMaster && !validUser.active) {
-                            showNotification('Esta conta está desativada. Contate o administrador.');
-                            return;
-                        }
-                        
-                        if (!validUser.isMaster && validUser.expiryDate && isAccountExpired(validUser.expiryDate)) {
-                            showNotification('Esta conta expirou. Contate o administrador.');
-                            return;
-                        }
-                        
-                        localStorage.setItem('isLoggedIn', 'true');
-                        localStorage.setItem('username', username);
-                        localStorage.setItem('isAdmin', validUser.isAdmin ? 'true' : 'false');
-                        
-                        if (validUser.isAdmin || validUser.isMaster) {
-                            elements.loginContainer.style.display = 'none';
-                            elements.adminPage.style.display = 'block';
-                            renderUserList();
-                        } else {
-                            elements.loginContainer.style.display = 'none';
-                            elements.dashboardPage.style.display = 'block';
-                            elements.welcomeUser.textContent = username;
-                            
-                            const expiryInfo = validUser.expiryDate ? 
-                                `Sua conta expira em: ${formatDate(validUser.expiryDate)} (${daysUntilExpiry(validUser.expiryDate)})` : 
-                                "Sua conta não tem data de expiração";
-                            elements.accountStatusInfo.textContent = expiryInfo;
-                        }
-                        
-                        startLogoutTimer();
-                        showNotification('Login realizado com sucesso!', 'success');
-                    } else {
-                        showNotification('Usuário ou senha incorretos');
-                    }
-                } catch (error) {
-                    console.error('Erro no login:', error);
-                    showNotification('Erro durante o login. Tente novamente.');
-                } finally {
-                    elements.loginBtn.disabled = false;
-                    elements.loginBtn.textContent = 'Entrar';
-                    showLoading(false);
-                }
-            });
-
-            elements.addUserBtn.addEventListener('click', function() {
-                addUser(
-                    elements.newUsernameInput.value.trim(), 
-                    elements.newPasswordInput.value,
-                    parseInt(elements.expiryTimeSelect.value)
-                );
-            });
-
-            elements.newPasswordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    addUser(
-                        elements.newUsernameInput.value.trim(), 
-                        elements.newPasswordInput.value,
-                        parseInt(elements.expiryTimeSelect.value)
-                    );
-                }
-            });
-
-            elements.logoutBtn.addEventListener('click', function() {
-                clearInterval(logoutTimer);
-                showNotification('Você saiu do sistema.', 'success');
-                performLogout();
-            });
-
-            elements.adminLogoutBtn.addEventListener('click', function() {
-                clearInterval(logoutTimer);
-                showNotification('Você saiu do sistema.', 'success');
-                performLogout();
-            });
-
-            elements.togglePassword.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                if (elements.passwordInput.type === 'password') {
-                    elements.passwordInput.type = 'text';
-                    icon.classList.replace('fa-eye', 'fa-eye-slash');
-                } else {
-                    elements.passwordInput.type = 'password';
-                    icon.classList.replace('fa-eye-slash', 'fa-eye');
-                }
-            });
-
-            // Inicialização do sistema
-            (async function init() {
-                try {
-                    await initializeUsers();
-                    
-                    if (checkLogin()) {
-                        const username = localStorage.getItem('username');
-                        const isAdmin = localStorage.getItem('isAdmin') === 'true';
-                        const users = await getUsers();
-                        const currentUser = users.find(user => user.username === username);
-                        
-                        if (!currentUser) {
-                            performLogout();
-                            return;
-                        }
-                        
-                        elements.loginContainer.style.display = 'none';
-                        
-                        if (isAdmin || currentUser.isMaster) {
-                            elements.adminPage.style.display = 'block';
-                            renderUserList();
-                        } else {
-                            elements.dashboardPage.style.display = 'block';
-                            elements.welcomeUser.textContent = username;
-                            
-                            const expiryInfo = currentUser.expiryDate ? 
-                                `Sua conta expira em: ${formatDate(currentUser.expiryDate)} (${daysUntilExpiry(currentUser.expiryDate)})` : 
-                                "Sua conta não tem data de expiração";
-                            elements.accountStatusInfo.textContent = expiryInfo;
-                        }
-                        
-                        startLogoutTimer();
-                    }
-                } catch (error) {
-                    console.error('Erro na inicialização:', error);
-                    showNotification('Erro ao iniciar o sistema');
-                }
-            })();
-        });
-    </script>
 </body>
 </html>
