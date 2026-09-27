@@ -1,375 +1,76 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapCut PRO Vitalício - Edição Profissional Ilimitada! | PROMOÇÃO R$ 45,00</title>
-    <meta name="description" content="Garanta o CapCut PRO Vitalício por apenas R$ 45,00. Acesso a todos os recursos PRO para sempre, com suporte completo. Promoção imperdível por tempo limitado!">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* RESET BÁSICO E TIPOGRAFIA */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nino Games — Gestão</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#090b10">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090b10;color:#f5f7fb;font:15px Arial,sans-serif}header,main{max-width:1100px;margin:auto}header{padding:20px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:26px;font-weight:900}.logo b{color:#8657ff}.menu{background:#181d28;color:#fff;border:0;border-radius:12px;font-size:24px;padding:7px 14px}main{padding:0 20px 50px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stat,.card,.panel{background:#121720;border:1px solid #28303d;border-radius:18px;padding:17px}.muted{color:#929caf;font-size:12px}.money{font-size:29px;font-weight:900;margin-top:5px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:18px}.top{display:flex;justify-content:space-between}.ring{width:150px;height:150px;margin:17px auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--c) var(--p),#29303b 0)}.ring:after{content:"";position:absolute}.inside{background:#0d1118;border-radius:50%;width:130px;height:130px;display:grid;place-items:center;text-align:center}.time{font-size:25px;font-weight:900}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.btn{border:0;border-radius:10px;padding:11px;background:#252c38;color:white;font-weight:bold}.primary{background:#7046ff}.tabs{display:flex;gap:8px;overflow:auto;margin:20px 0}.tabs button{white-space:nowrap}.panel{margin-top:12px}.row{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #252c38}.row:last-child{border:0}.up{color:#37d996}.down{color:#ff5570}canvas{width:100%;height:230px;background:#0c1017;border-radius:12px}dialog{background:#151a23;color:white;border:1px solid #394253;border-radius:18px;width:min(470px,92%);padding:20px}dialog::backdrop{background:#000b}input,textarea{width:100%;padding:11px;margin:6px 0 12px;background:#222936;color:white;border:1px solid #394253;border-radius:9px}.tw{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ring{position:relative;cursor:pointer;transition:.2s}.ring.overtime{background:conic-gradient(#ff334f 100%,#ff334f 0);box-shadow:0 0 24px rgba(255,51,79,.28)}.ring.overtime .inside{border:1px solid #ff334f}.negative{color:#ff5570!important}.musicbox{display:grid;gap:10px}.musicrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.musicrow input[type=file]{margin:0;padding:8px}.range{width:180px;margin:0}.install{display:none}.small{font-size:12px}.alarm-on{animation:alarmPulse .65s ease-in-out infinite alternate}@keyframes alarmPulse{to{box-shadow:0 0 30px rgba(255,51,79,.55)}}
+@media(max-width:750px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:500px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            background-color: #0d1117; /* Fundo escuro profissional */
-            color: #f0f6fc; /* Texto claro */
-        }
-
-        /* CONTAINER PRINCIPAL */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* CABEÇALHO */
-        header {
-            background-color: #161b22;
-            padding: 15px 0;
-            text-align: center;
-            border-bottom: 3px solid #00c7e2; /* Cor de destaque CapCut */
-        }
-
-        header .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #00c7e2;
-            text-transform: uppercase;
-        }
-
-        /* SEÇÃO HERO (DESTAQUE) */
-        #hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 199, 226, 0.5);
-        }
-
-        #hero .subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 40px;
-            color: #ccc;
-        }
-        
-        /* DESTAQUE DO PREÇO */
-        .price-box {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Fundo de preço chamativo */
-            padding: 20px 40px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.5);
-            animation: pulse 1.5s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.05); }
-        }
-
-        .price-box .old-price {
-            font-size: 1.2rem;
-            text-decoration: line-through;
-            color: #f0f6fc;
-            opacity: 0.7;
-            display: block;
-            margin-bottom: -5px;
-        }
-
-        .price-box .new-price {
-            font-size: 4rem;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1;
-        }
-
-        .price-box .tagline {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-
-        /* BOTÃO CTA (CHAMADA PARA AÇÃO) */
-        .cta-button {
-            display: inline-block;
-            background-color: #00c7e2; /* Cor principal CapCut */
-            color: #161b22;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 8px 15px rgba(0, 199, 226, 0.4);
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            background-color: #00e2ff;
-            transform: translateY(-3px);
-        }
-        
-        /* SEÇÃO DE RECURSOS */
-        #recursos {
-            padding: 60px 0;
-            background-color: #101419;
-            text-align: center;
-        }
-
-        #recursos h2 {
-            font-size: 2.5rem;
-            color: #00c7e2;
-            margin-bottom: 40px;
-            font-weight: 700;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-
-        .feature-item {
-            background-color: #161b22;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid #ff416c;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-        
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-item i {
-            font-size: 2rem;
-            color: #00c7e2;
-            margin-bottom: 10px;
-        }
-
-        .feature-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        /* SEÇÃO DE GARANTIA E SUPORTE */
-        #garantia {
-            padding: 60px 0;
-            text-align: center;
-            background-color: #0d1117;
-        }
-        
-        #garantia h2 {
-            font-size: 2.5rem;
-            color: #ff416c;
-            margin-bottom: 40px;
-            font-weight: 700;
-        }
-        
-        .guarantee-box {
-            background-color: #161b22;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 2px solid #ff416c;
-        }
-        
-        .guarantee-box i {
-            font-size: 3rem;
-            color: #00c7e2;
-            margin-bottom: 15px;
-        }
-        
-        .guarantee-box p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        /* NOVO ESTILO DO LINK DE SUPORTE */
-        .support-link {
-            display: inline-block;
-            background-color: #00c7e2;
-            color: #161b22;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none; /* Remove sublinhado */
-            transition: background-color 0.3s;
-            margin-top: 15px;
-        }
-        
-        .support-link:hover {
-            background-color: #00e2ff;
-        }
-        
-        .support-link i {
-            margin-right: 8px;
-            color: #161b22;
-            font-size: 1.1rem;
-        }
-
-        /* RODAPÉ */
-        footer {
-            background-color: #161b22;
-            color: #ccc;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-            border-top: 1px solid #1f2a37;
-        }
-        
-        footer .support-contact {
-            color: #00c7e2;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        /* RESPONSIVIDADE (Ajustes para telas menores) */
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            #hero .subtitle {
-                font-size: 1.2rem;
-            }
-            .price-box .new-price {
-                font-size: 3rem;
-            }
-            .price-box .tagline {
-                font-size: 1.2rem;
-            }
-            .cta-button {
-                font-size: 1.5rem;
-                padding: 12px 30px;
-            }
-        }
-    </style>
-</head>
+.game-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;background:
+radial-gradient(circle at 15% 20%,rgba(134,87,255,.16),transparent 28%),
+radial-gradient(circle at 85% 75%,rgba(32,212,189,.10),transparent 25%),
+#080a0f}
+.grid-lines{position:absolute;inset:-30%;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:55px 55px;transform:perspective(500px) rotateX(62deg);animation:gridMove 18s linear infinite}
+.orb{position:absolute;border-radius:50%;filter:blur(28px);opacity:.22;animation:float 9s ease-in-out infinite}.o1{width:180px;height:180px;background:#8657ff;left:-50px;top:18%}.o2{width:150px;height:150px;background:#20d4bd;right:-40px;bottom:15%;animation-delay:-4s}
+.pixel{position:absolute;color:#a98cff;opacity:.18;font-size:22px;animation:drift 7s ease-in-out infinite}.p1{left:18%;top:28%}.p2{right:18%;top:35%;animation-delay:-2s}.p3{left:75%;top:12%;animation-delay:-4s}.bg-character{position:absolute;right:4%;top:12%;font-size:62px;opacity:.10;filter:drop-shadow(0 0 16px #8657ff);animation:float 8s ease-in-out infinite}
+@keyframes gridMove{to{transform:perspective(500px) rotateX(62deg) translateY(55px)}}@keyframes float{50%{transform:translateY(-18px) translateX(8px)}}@keyframes drift{50%{transform:translateY(-20px) rotate(12deg);opacity:.32}}
+</style></head>
 <body>
+<header><div class="logo">NINO<b>GAMES</b> <small class="muted">GESTÃO</small></div><button class="menu" onclick="menu.showModal()">⋮</button></header>
+<main>
+<div class="stats"><div class="stat"><span class="muted">ARRECADAÇÃO DE HOJE</span><div class="money" id="today">R$ 0,00</div></div><div class="stat"><span class="muted">TOTAL GERAL</span><div class="money" id="total">R$ 0,00</div></div></div>
+<div class="panel" style="margin-top:14px"><h3 style="margin-top:0">🎵 Música do Nino Games</h3><div class="musicbox"><div class="musicrow"><input id="musicFile" type="file" accept="audio/*"><button class="btn primary" onclick="loadMusic()">Carregar</button><button class="btn" onclick="musicToggle()" id="musicBtn">▶ Tocar</button><button class="btn" onclick="musicStop()">■ Parar</button></div><div class="musicrow"><span class="muted">Volume</span><input id="musicVol" class="range" type="range" min="0" max="1" step="0.01" value="0.6" oninput="setMusicVolume()"><span id="musicName" class="muted">Nenhuma música selecionada</span></div><audio id="music" loop></audio><span class="muted small">Você pode usar sua própria música. O celular pode pausar o áudio em segundo plano dependendo das regras de economia de bateria.</span></div></div>
+<div class="panel install" id="installPanel" style="margin-top:14px"><b>📲 Instalar Nino Games</b><p class="muted">Instale na tela inicial para usar como aplicativo.</p><button class="btn primary" onclick="installApp()">Instalar aplicativo</button></div>
+<div class="grid" id="grid"></div>
+<div class="tabs"><button class="btn primary" onclick="tab('home')">Visão geral</button><button class="btn" onclick="tab('history')">Histórico</button><button class="btn" onclick="tab('agenda')">Agenda</button><button class="btn" onclick="tab('codes')">Códigos</button></div>
+<section id="home" class="panel"><h3>📈 Evolução dos registros</h3><canvas id="chart"></canvas></section>
+<section id="history" class="panel" hidden><h3>Histórico concluído</h3><div id="hist"></div></section>
+<section id="agenda" class="panel" hidden><h3>Agenda / faturamento por dia</h3><div id="days"></div></section>
+<section id="codes" class="panel" hidden><h3>🔐 Códigos</h3><p class="muted">Os dados dos clientes não ficam expostos aqui. Use “Inserir código” para acessar um cadastro específico.</p><button class="btn primary" onclick="lookup.showModal()">⌕ Inserir código</button></section>
+</main>
 
-    <header>
-        <div class="container">
-            <span class="logo">CapCut PRO</span>
-        </div>
-    </header>
+<dialog id="menu"><h2>Menu</h2><button class="btn primary" style="width:100%;margin:5px 0" onclick="menu.close();codeDlg.showModal()">＋ Criar código / cliente</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close();lookup.showModal()">⌕ Inserir código</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close();tab('history')">◷ Histórico</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close();tab('agenda')">▦ Agenda</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close();tab('codes')">👥 Cadastros</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close();alert('Área de minigames pronta para receber seus jogos.')">🎮 Minigames</button><button class="btn" style="width:100%;margin:5px 0" onclick="menu.close()">Fechar</button></dialog>
 
-    <section id="hero">
-        <div class="container">
-            <h1>CapCut PRO VITALÍCIO</h1>
-            <p class="subtitle">Acesso Ilimitado aos Melhores Recursos de Edição, Para Sempre!</p>
-            
-            <div class="price-box">
-                <span class="old-price">Preço Normal Anual: R$ 430,00</span>
-                <span class="new-price">R$ 45,00</span>
-                <span class="tagline">PROMOÇÃO IMPERDÍVEL!</span>
-            </div>
-            
-            <a href="https://pay.kiwify.com.br/dyDZeNS" class="cta-button" id="main-cta">
-                <i class="fas fa-bolt"></i> GARANTA SEU ACESSO VITALÍCIO!
-            </a>
-            
-            <p style="margin-top: 20px; font-weight: 600;">* Oferta válida apenas enquanto durar o estoque promocional.</p>
-        </div>
-    </section>
+<dialog id="edit"><h2>Editar console</h2><label>Nome</label><input id="ename"><label>Tempo</label><div class="tw"><input id="eh" type="number" min="0" placeholder="Horas"><input id="em" type="number" min="0" max="59" placeholder="Minutos"></div><input id="es" type="number" min="0" max="59" placeholder="Segundos"><label>Preços atuais deste console (só novos usos)</label><div class="tw"><input id="ehalf" type="number" min="0" step="0.01" placeholder="30 min"><input id="ehour" type="number" min="0" step="0.01" placeholder="1 hora"></div><button class="btn primary" style="width:100%" onclick="saveTimer()">Salvar</button></dialog>
+<dialog id="codeDlg"><h2>Novo cadastro</h2><label>Código escolhido por você</label><input id="ccode" placeholder="Ex.: 645A"><label>Cliente</label><input id="cname" placeholder="João"><label>Tempo reservado</label><input id="ctime" placeholder="1h30"><label>Anotações</label><textarea id="cnote"></textarea><button class="btn primary" style="width:100%" onclick="saveCode()">Salvar</button></dialog>
+<dialog id="lookup"><h2>Acessar cadastro</h2><input id="find" placeholder="Digite o código"><button class="btn primary" style="width:100%" onclick="findCode()">Abrir</button><div id="found"></div></dialog>
 
-    <section id="recursos">
-        <div class="container">
-            <h2>O que o CapCut PRO Vitalício Libera para Você?</h2>
-            
-            <div class="features-grid">
-                
-                <div class="feature-item">
-                    <i class="fas fa-magic"></i>
-                    <h3>Remoção de Fundo (Chroma Key)</h3>
-                    <p>Remova fundos de vídeos e fotos com um clique, de forma precisa e profissional.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>Efeitos e Transições Exclusivas</h3>
-                    <p>Centenas de efeitos, filtros e transições premium para vídeos com qualidade de cinema.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-video"></i>
-                    <h3>Exportação em 4K e 60 FPS</h3>
-                    <p>Qualidade máxima para suas edições, garantindo vídeos nítidos e fluidos em qualquer plataforma.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-robot"></i>
-                    <h3>Recursos de IA Avançada</h3>
-                    <p>Ferramentas de Inteligência Artificial para retoque facial, estabilização e legendas automáticas PRO.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-music"></i>
-                    <h3>Biblioteca de Áudio Ilimitada</h3>
-                    <p>Acesso total a músicas e efeitos sonoros livres de direitos autorais para monetizar seus vídeos.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-infinity"></i>
-                    <h3>Sem Marca D'água PRO</h3>
-                    <p>Diga adeus à marca d'água PRO em suas edições. Seus vídeos, 100% profissionais.</p>
-                </div>
-                
-            </div>
-            
-            <a href="https://pay.kiwify.com.br/dyDZeNS" class="cta-button" style="margin-top: 50px;">
-                <i class="fas fa-check-circle"></i> EU QUERO A LICENÇA VITALÍCIA POR R$ 45!
-            </a>
-        </div>
-    </section>
-    
-    <section id="garantia">
-        <div class="container">
-            <h2>Sua Compra 100% Segura e com Suporte</h2>
-            
-            <div class="guarantee-box">
-                <i class="fas fa-shield-alt"></i>
-                <p>Nossa licença é genuína e garante seu acesso vitalício aos recursos PRO.</p>
-                <p>Você recebe a licença e um passo a passo completo. É rápido, fácil e garantido!</p>
-                
-                <a href="https://wa.me/558888587251" target="_blank" class="support-link">
-                    <i class="fab fa-whatsapp"></i> SUPORTE COMPLETO VIA WHATSAPP INCLUSO!
-                </a>
-                <p style="margin-top: 15px; font-style: italic;">Não se preocupe com dúvidas ou instalação. Nossa equipe está pronta para te ajudar.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 CapCut PRO Vitalício. Todos os direitos reservados. | Precisa de Ajuda? Fale com nosso suporte: <a href="https://wa.me/558888587251" target="_blank" class="support-contact">WhatsApp (88) 8858-7251</a></p>
-        </div>
-    </footer>
-    
-    <script></script>
-
-</body>
-</html>
+<script>
+const defs=[["PS2",2,4],["PS3",4,7],["PS4",4,8],["Xbox 360",4,7],["PS3 2",4,7],["PS2 2",2,4]], colors=["#8657ff","#ff4d8d","#20d4bd","#ffb52e","#4da3ff","#71dc61"];
+let D=JSON.parse(localStorage.getItem("gamebox")||"null")||{timers:defs.map(x=>({name:x[0],half:x[1],hour:x[2],total:0,rem:0,run:false,last:0,overtime:false,alarm:false})),hist:[],days:{},codes:{}},sel=0;
+D.timers.forEach(c=>{c.overtime=!!c.overtime;c.alarm=!!c.alarm});
+const R=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}), save=()=>localStorage.setItem("gamebox",JSON.stringify(D));
+let audioCtx=null, deferredInstall=null, musicURL=null;
+function ensureAudio(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume()}
+function beep(){try{ensureAudio();let now=audioCtx.currentTime;[0,.22,.44].forEach((d)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=880;o.type='square';g.gain.setValueAtTime(.0001,now+d);g.gain.exponentialRampToValueAtTime(.22,now+d+.02);g.gain.exponentialRampToValueAtTime(.0001,now+d+.16);o.connect(g);g.connect(audioCtx.destination);o.start(now+d);o.stop(now+d+.18)})}catch(e){}}
+function draw(){grid.innerHTML=D.timers.map((c,i)=>`<article class="card"><div class="top"><b>${c.name}</b><span class="muted">${R(c.half)}/30m • ${R(c.hour)}/1h</span></div><div class="ring ${c.overtime?"overtime":""}" id="r${i}" onclick="ringTap(${i})" style="--c:${c.overtime?"#ff334f":colors[i]};--p:${c.total?Math.min(100,c.rem/c.total*100):100}%"><div class="inside"><div><div class="time ${c.overtime?"negative":""}" id="t${i}">00:00:00</div><span class="muted" id="s${i}">${c.overtime?"TEMPO ESGOTADO":"Parado"}</span></div></div></div><div class="buttons"><button class="btn primary" onclick="toggle(${i})">▶ / Ⅱ</button><button class="btn" onclick="editTimer(${i})">✎ Editar</button></div></article>`).join(""); update();}
+function toggle(i){let c=D.timers[i];ensureAudio();if(c.overtime){finalize(i);return}if(!c.total)c.total=c.rem=3600000;if(c.run){c.rem=Math.max(0,c.rem-(Date.now()-c.last));c.run=false}else{c.run=true;c.last=Date.now()}save();update()}
+function ringTap(i){let c=D.timers[i];ensureAudio();if(c.overtime)finalize(i);else if(!c.run&&!c.total){c.total=c.rem=3600000;c.run=true;c.last=Date.now();save();update()}}
+function finalize(i){let c=D.timers[i],mins=Math.round(c.total/60000),value=Math.floor(mins/60)*c.hour+(mins%60>=30?c.half:0);if(value){let d=new Date(),date=d.toLocaleDateString("pt-BR"),time=d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});D.hist.push({id:Date.now(),date,time,console:c.name,mins,value});D.days[date]=(D.days[date]||0)+value}c.total=c.rem=0;c.run=false;c.overtime=false;c.alarm=false;save();extra()}
+function update(){D.timers.forEach((c,i)=>{if(c.run){c.rem-=Date.now()-c.last;c.last=Date.now();if(c.rem<=0){c.rem=-(Math.abs(c.rem));c.run=false;c.overtime=true;if(c.alarm!==true){c.alarm=true;beep();}}}let secs=Math.floor(Math.abs(c.rem)/1000),h=Math.floor(secs/3600);secs%=3600;let m=Math.floor(secs/60),s=secs%60;let sign=c.overtime?"-":"";document.getElementById("t"+i).textContent=sign+[h,m,s].map(n=>String(n).padStart(2,"0")).join(":");document.getElementById("s"+i).textContent=c.overtime?"TEMPO ESGOTADO":c.run?"Rodando":"Parado";document.getElementById("t"+i).classList.toggle("negative",c.overtime);document.getElementById("r"+i).classList.toggle("overtime",c.overtime);document.getElementById("r"+i).style.setProperty("--p",(c.total?Math.min(100,Math.max(0,c.rem/c.total*100)):100)+"%")});let today=new Date().toLocaleDateString("pt-BR");document.getElementById("today").textContent=R(D.days[today]||0);document.getElementById("total").textContent=R(Object.values(D.days).reduce((a,b)=>a+b,0));save()}
+function editTimer(i){sel=i;let c=D.timers[i],q=Math.floor(c.rem/1000);ename.value=c.name;eh.value=Math.floor(q/3600);em.value=Math.floor(q%3600/60);es.value=q%60;ehalf.value=c.half;ehour.value=c.hour;edit.showModal()}
+function saveTimer(){let c=D.timers[sel],h=+eh.value||0,m=+em.value||0,s=+es.value||0;c.name=ename.value||c.name;c.half=Math.max(0,+ehalf.value||0);c.hour=Math.max(0,+ehour.value||0);c.total=c.rem=(h*3600+m*60+s)*1000;c.run=false;save();edit.close();draw()}
+function tab(x){["home","history","agenda","codes"].forEach(y=>document.getElementById(y).hidden=y!==x);extra()}
+function extra(){update();hist.innerHTML=D.hist.slice().reverse().map(x=>`<div class="row"><span><b>${x.console}</b><br><span class="muted">${x.date} • ${x.time} • ${x.mins} min</span></span><span><b>${R(x.value)}</b> <button class="btn" onclick="editHist(${x.id})">Editar</button></span></div>`).join("")||"Nenhum tempo concluído.";days.innerHTML=Object.entries(D.days).reverse().map(([d,v])=>`<div class="row"><b>${d}</b><b>${R(v)}</b></div>`).join("")||"Sem dias.";chartDraw()}
+function editHist(id){let x=D.hist.find(a=>a.id===id),n=prompt("Novo valor:",x.value);if(n===null)return;n=Number(n.replace(",","."));if(!isFinite(n))return;D.days[x.date]=(D.days[x.date]||0)-x.value+n;x.value=n;save();extra()}
+function saveCode(){let k=document.getElementById("ccode").value.trim();if(!k)return alert("Informe um código.");if(!D.codes)D.codes={};D.codes[k]={name:document.getElementById("cname").value||"Cliente",time:document.getElementById("ctime").value,note:document.getElementById("cnote").value};save();codeDlg.close();extra();alert("Cadastro salvo: "+k)}
+function findCode(){let key=document.getElementById("find").value.trim();let box=document.getElementById("found");if(!key){box.innerHTML="<p>Digite um código.</p>";return}let v=D.codes&&D.codes[key];box.innerHTML=v?`<div class="panel"><b>Cliente: ${v.name}</b><br><span class="muted">Tempo reservado: ${v.time||"—"}<br>Anotações: ${v.note||"—"}</span></div>`:"<p>Código não encontrado.</p>"}
+function loadMusic(){let f=document.getElementById("musicFile").files[0];if(!f)return alert("Escolha uma música primeiro.");if(musicURL)URL.revokeObjectURL(musicURL);musicURL=URL.createObjectURL(f);let a=document.getElementById("music");a.src=musicURL;a.volume=+document.getElementById("musicVol").value;document.getElementById("musicName").textContent=f.name;ensureAudio();a.play().then(()=>document.getElementById("musicBtn").textContent="Ⅱ Pausar").catch(()=>{});}
+function musicToggle(){let a=document.getElementById("music");if(!a.src)return alert("Carregue uma música primeiro.");ensureAudio();if(a.paused){a.play();document.getElementById("musicBtn").textContent="Ⅱ Pausar"}else{a.pause();document.getElementById("musicBtn").textContent="▶ Tocar"}}
+function musicStop(){let a=document.getElementById("music");a.pause();a.currentTime=0;document.getElementById("musicBtn").textContent="▶ Tocar"}
+function setMusicVolume(){document.getElementById("music").volume=+document.getElementById("musicVol").value}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;document.getElementById('installPanel').style.display='block'});
+async function installApp(){if(deferredInstall){deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null}else alert('No Android/Chrome, use o menu do navegador e escolha “Adicionar à tela inicial” ou “Instalar aplicativo”.')}
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+function chartDraw(){let c=document.getElementById("chart"),x=c.getContext("2d"),w=c.clientWidth*2,h=460;c.width=w;c.height=h;x.scale(2,2);w/=2;h/=2;x.clearRect(0,0,w,h);let a=D.hist.slice(-18);if(!a.length){x.fillStyle="#8f98aa";x.fillText("Conclua um tempo para ver a evolução.",18,35);return}let mx=Math.max(...a.map(z=>z.value),1),st=(w-45)/Math.max(1,a.length-1);x.strokeStyle="#8657ff";x.lineWidth=3;x.beginPath();a.forEach((z,i)=>{let px=22+i*st,py=h-35-z.value/mx*(h-70);i?x.lineTo(px,py):x.moveTo(px,py)});x.stroke();a.forEach((z,i)=>{let px=22+i*st,py=h-35-z.value/mx*(h-70);x.fillStyle="#fff";x.beginPath();x.arc(px,py,4,0,7);x.fill();x.fillStyle="#aeb7c8";x.font="11px Arial";x.fillText(R(z.value),Math.max(0,px-18),py-9);x.fillText(z.time,Math.max(0,px-15),h-15)})}
+setInterval(()=>{if(D.timers.some(c=>c.run)||D.timers.some(c=>c.overtime))update()},250);draw();extra();
+</script>
+<div class="game-bg" aria-hidden="true">
+  <div class="grid-lines"></div>
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="pixel p1">✦</div><div class="pixel p2">◆</div><div class="pixel p3">✦</div>
+  <div class="bg-character">🎮</div>
+</div>
+</body></html>
